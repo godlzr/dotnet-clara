@@ -19,15 +19,15 @@ namespace dotnet_clara
         static void Main(string[] args)
         {          
             //Config config = new Config();
-            string username = "godlzr";
-            string apiToken = "546559a8-eeb3-4376-be59-08628b9606bd";
-            string host = "clara.io";
-            string sceneId = "00330083-d9ea-4013-a7bc-bc26c605991f";
+            string username = "machine";
+            string apiToken = "3cfe602b-584b-411d-9900-cf9ef73ee69d";
+            string host = "192.168.33.10";
+            string sceneId = "48f0a1b5-51f9-4eb2-abc8-c6e0fdb349bb";
             lib.Clara clara = new lib.Clara(username, apiToken, host);
             string jobId = "8ca62d7f-2fbc-4d3a-9894-7fbe513548ee";
 
-
-            var bytes = clara.scenes.Command(sceneId, "{command:\"presets/polarCameraSetup\", data:{radius:0.5,azimuthAngle:0,polarAngle:0}}");
+            clara.scenes.Export(sceneId, "fbx", 1);
+            //var bytes = clara.scenes.Command(sceneId, "{command:\"presets/polarCameraSetup\", data:{radius:0.5,azimuthAngle:0,polarAngle:0}}");
             //var bytes = clara.scenes.Render(sceneId, "{height:600, width:800}", "{command:\"presets/polarCameraSetup\", data:{radius:0.5,azimuthAngle:0,polarAngle:0}}");
             //var bytes = resp.RawBytes;
             //Stream stream = new MemoryStream(bytes);
