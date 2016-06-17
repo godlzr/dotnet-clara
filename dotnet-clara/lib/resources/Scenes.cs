@@ -222,6 +222,18 @@ namespace dotnet_clara.lib.resources
             IRestResponse response = method.Request("get", request);
             return response;
         }
+		 //Export JSON of scene
+        public byte[] ToJSON(string sceneId)
+        {
+            string requestUrl = sceneId + "published?toJSON=true";
+            RestRequest request = new RestRequest();
+            request.Resource = requestUrl;
+            IRestResponse resp = method.Request("post", request, true);
+            if (resp.Content != "failed")
+                return resp.RawBytes;
+            else
+                return new byte[0];
+        }
 
     }
 }
